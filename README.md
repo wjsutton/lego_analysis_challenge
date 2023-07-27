@@ -1,8 +1,11 @@
 # Lego SQL Challenge
 A SQL Portfolio challenge, create a schema, build tables, create an ER (Entity-Relationship) diagram using DBeaver
 
-
-
+## Task Overview
+- [Part 1: Schema Setup :inbox_tray:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-1-schema-setup-inbox_tray)
+- [Part 2: Analysis of Lego Sets :crystal_ball:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-2-analysis-of-lego-sets-crystal_ball)
+- [Part 3: Visualise the data :chart_with_upwards_trend:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-3-visualise-the-data-chart_with_upwards_trend)
+- [Part 4: Record the project on GitHub :white_check_mark:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-4-record-the-project-on-github-white_check_mark)
 
 
 ## Part 1: Schema Setup :inbox_tray:
@@ -63,7 +66,7 @@ FROM  database.schema.source_table
 #### 4. Set Primary and Foreign Keys:
 After populating your tables, you'll need to define primary and foreign keys for each of them.
 
-Use the diagram below for guidence, not all tables will have a primary key. 
+Use the diagram below for guidance, not all tables will have a primary key. 
 
 ![](downloads_schema.png)
 
@@ -89,7 +92,7 @@ Once your tables are built, populated, and linked, download and use [DBeaver](ht
 - Username: your TIL email
 - Role: DATASCHOOL or CORE 
 
-You may be prompted multiple times in the browser.
+You may be prompted to login multiple times in the browser.
 
 Navigate to your schema:  right click > View Schema
 
@@ -97,8 +100,8 @@ Navigate to your schema:  right click > View Schema
 
 At the end of this section, you should have:
 - a schema in the TIL_PORTFOLIO_PROJECTS database filled with tables populated with LEGO data.
-- a SQL script creating your schema, tables, inserting data and creating primary and foriegn keys
-- a DBeaver ER diagram showing the relationships between your tables.
+- a SQL script creating your schema, tables, inserting data and creating primary and foreign keys
+- a DBeaver ER diagram showing the relationships between your tables
 
 ### My solution
 
@@ -114,12 +117,12 @@ Now that you have a fully populated and linked database, the next step is to pro
 ### Key Steps
 
 #### 1. Unique Parts Identification: 
-Identify parts that appear in only one LEGO set. Create a list of these unique parts along with the sets they appear in.
+Identify parts that appear in only one LEGO set. Note the quantity of the part does not matter.
 
 Hint: You'll need to use an aggregate function to count the number of distinct sets each part appears in. A part is unique if it appears in exactly one set.
 
 #### 2. Set Analysis: 
-For each LEGO set, calculate the number of unique parts it includes and the total number of parts. Calculate the ratio of unique parts to total parts as a measure of 'uniqueness' for each set. Enrich your query with the set year and theme name.
+For each LEGO set, calculate the number of unique parts it includes and the total number of parts (we're looking for a count of the parts, not quantity). Calculate the ratio of unique parts to total parts as a measure of 'uniqueness' for each set. Enrich your query with the set year and theme name.
 
 Hint: You can join the unique parts list to the inventory parts table on the part number. Use a LEFT JOIN so that you include all parts, not just the unique ones.
 
@@ -129,8 +132,16 @@ Lastly, you'll want to create a view of your final query, which includes the set
 Hint: Use the CREATE VIEW statement to make your final query results easily accessible for future analysis.
 
 ```
-CREATE VIEW unique_sets AS
+CREATE VIEW my_well_named_view AS
 <Your SQL Query>
+```
+
+#### 4. Download your data and save it locally as a csv.
+
+Run a query to extract the data from your view and save it to a csv file, we'll be adding this to our GitHub repo later.
+```
+SELECT *
+FROM my_well_named_view;
 ```
 
 
@@ -141,9 +152,9 @@ Now that you have a View created, your next task is to build a Tableau dashboard
 
 Go to the TIL Tableau Server, connect to Snowflake and the view you've created. The connection details will be the same as in part 1 when connecting to DBeaver.
 
-Product three charts exploring unique lego parts:
+Product three charts exploring unique Lego parts:
 - change over time
-- compared to total parts in a set
+- compared to the total parts in a set
 - by set theme
 
 Add titles and interactions to the visualisation. 
@@ -151,7 +162,30 @@ Add titles and interactions to the visualisation.
 Save the results as a Tableau dashboard. 
 Record a screenshot of the visualisation.
 
-You can add this to your Tableau Public portfolio by replacing the datasource with a csv, opening the .twbx file in Tableau Public and saving the workbook.
+You can add this to your Tableau Public portfolio by replacing the datasource with the csvfrom part 2, opening the .twbx file in Tableau Public and saving the workbook.
 
+## Part 4: Record the project on GitHub :white_check_mark:
 
+If you haven't already please sign up to GitHub first at [https://github.com/join](https://github.com/join) and watch this intro video [Git, GitHub, & GitHub Desktop for beginners](https://www.youtube.com/watch?v=8Dd7KRpKeaE)
 
+Create a repository: 
+- Create a New repository for this analysis (something like "LEGO-SQL-Analysis")
+- Select the visibility as 'Public'
+- Initialize the repository with a README
+
+Add files to your repository
+
+Please ensure any files, notes, in fact, anything you put on GitHub does not have any passwords or login information. If you do this view the login as compromised, please delete the repo and create a new password/login.
+
+On Github.com on your repository click on 'Add file' > 'Upload files' and upload your:
+- SQL scripts,
+- Schema Diagram,
+- solution csv
+
+Edit your README.md
+
+GitHub provides a readme file which is rendered when a user views your repository, it's a great way to document your project and looks great for a portfolio project, like this one. 
+
+Please copy and paste the [template_readme.md](https://github.com/wjsutton/lego_analysis_challenge/blob/main/template_readme.md) and update the links and details about your project.
+
+Note the readme file must be called "README.md" to appear on rendered on the repository home page.
