@@ -5,7 +5,7 @@ A SQL Portfolio challenge, create a schema, build tables, create an ER (Entity-R
 
 
 
-## Part 1: Schema Setup
+## Part 1: Schema Setup :inbox_tray:
 
 We're going to use the Snowflake database to build and populate a series of tables that make up a LEGO database. You will need to create tables, insert data, set primary and foreign keys, and then create an ER (Entity-Relationship) diagram using DBeaver.
 
@@ -94,12 +94,20 @@ You may be prompted multiple times in the browser.
 Navigate to your schema:  right click > View Schema
 
 ### Deliverable
-At the end of this challenge, you should have a schema in the TIL_PORTFOLIO_PROJECTS database filled with tables populated with LEGO data. You should also have a DBeaver ER diagram showing the relationships between your tables.
+
+At the end of this section, you should have:
+- a schema in the TIL_PORTFOLIO_PROJECTS database filled with tables populated with LEGO data.
+- a SQL script creating your schema, tables, inserting data and creating primary and foriegn keys
+- a DBeaver ER diagram showing the relationships between your tables.
+
+### My solution
+
+Here is my solution if you get stuck
+- SQL Script
+- ER Diagram
 
 
-
-
-## Part 2: Analysis of Lego Sets
+## Part 2: Analysis of Lego Sets :crystal_ball:
 
 Now that you have a fully populated and linked database, the next step is to produce some analysis. LEGO production involves creating many different parts, and as you can imagine, producing new, unique parts can be costly versus reusing existing parts. In this challenge, we want to investigate which LEGO sets include the most unique parts, and how this trend is changing over time.
 
@@ -120,7 +128,30 @@ Lastly, you'll want to create a view of your final query, which includes the set
 
 Hint: Use the CREATE VIEW statement to make your final query results easily accessible for future analysis.
 
-## Part 3: Visualise the data 
+```
+CREATE VIEW unique_sets AS
+<Your SQL Query>
+```
+
+
+
+## Part 3: Visualise the data :chart_with_upwards_trend:
+
+Now that you have a View created, your next task is to build a Tableau dashboard to explore the unique parts in various LEGO sets.
+
+Go to the TIL Tableau Server, connect to Snowflake and the view you've created. The connection details will be the same as in part 1 when connecting to DBeaver.
+
+Product three charts exploring unique lego parts:
+- change over time
+- compared to total parts in a set
+- by set theme
+
+Add titles and interactions to the visualisation. 
+
+Save the results as a Tableau dashboard. 
+Record a screenshot of the visualisation.
+
+You can add this to your Tableau Public portfolio by replacing the datasource with a csv, opening the .twbx file in Tableau Public and saving the workbook.
 
 
 
