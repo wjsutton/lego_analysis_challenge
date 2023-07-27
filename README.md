@@ -105,11 +105,11 @@ At the end of this section, you should have:
 - a SQL script creating your schema, tables, inserting data and creating primary and foreign keys
 - a DBeaver ER diagram showing the relationships between your tables
 
-### My solution
+### My Solution
 
 Here is my solution if you get stuck
-- SQL Script
-- ER Diagram
+- [SQL Script](solutions/create_lego_schema.sql)
+- ER Diagram](solutions/lego_er_diagram.png)
 
 
 ## Part 2: Analysis of Lego Sets :crystal_ball:
@@ -146,6 +146,10 @@ SELECT *
 FROM my_well_named_view;
 ```
 
+### My Solution
+
+Here is my solution if you get stuck
+- [SQL Script](solutions/unique_lego_sets.sql)
 
 
 ## Part 3: Visualise the data :chart_with_upwards_trend:
