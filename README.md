@@ -1,5 +1,7 @@
 # Lego SQL Challenge
-A SQL Portfolio challenge, create a schema, build tables, create an ER (Entity-Relationship) diagram using DBeaver
+A SQL Portfolio challenge, create a schema, analyse data, create a visualisation. 
+
+<img src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' width="70%">
 
 ## Task Overview
 - [Part 1: Schema Setup :inbox_tray:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-1-schema-setup-inbox_tray)
