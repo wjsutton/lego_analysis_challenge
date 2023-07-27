@@ -15,6 +15,10 @@ We're going to use the Snowflake database to build and populate a series of tabl
 We'll be working in a database called TIL_PORTFOLIO_PROJECTS and a schema called STAGING contains all our initial data. You should create your own schema within TIL_PORTFOLIO_PROJECTS. This will be the container for all your tables.
 
 Hint: Use the CREATE SCHEMA command to create a schema.
+```
+CREATE SCHEMA database.schema_name;
+```
+
 
 #### 2. Create Tables:
 Based on the existing data, create the following tables in your schema:
@@ -31,27 +35,69 @@ Based on the existing data, create the following tables in your schema:
 Ensure you define the correct data types for each column in these tables.
 
 Hint: Use the CREATE TABLE command. Look at the data in the STAGING schema for guidance on the data types and column names you'll need.
+```
+CREATE TABLE database.schema.table (
+	column_1 integer,
+	column_2 VARCHAR(44)
+);
+
+-- Check column character length, for varchar() length
+SELECT MAX(LENGTH(part_num))
+FROM TIL_PORTFOLIO_PROJECTS.STAGING.LEGO_PARTS;
+```
+
+
 
 #### 3. Insert Data:
 Once the tables have been created, you'll need to populate them with data from the corresponding tables in the STAGING schema.
 
 Hint: Use the INSERT INTO command combined with a SELECT * FROM query to pull in the data from the STAGING tables.
 
-#### 4. Set Primary Keys:
-After populating your tables, you'll need to define primary keys for each of them.
+```
+INSERT INTO database.schema.destination_table (
+SELECT *
+FROM  database.schema.source_table
+);
+```
 
-Hint: Use the ALTER TABLE command along with ADD PRIMARY KEY.
+#### 4. Set Primary and Foreign Keys:
+After populating your tables, you'll need to define primary and foreign keys for each of them.
 
-#### 5. Set Foreign Keys:
-Next, establish the relationships between your tables by adding the appropriate foreign keys.
+Use the diagram below for guidence, not all tables will have a primary key. 
 
-Hint: Again, you'll be using ALTER TABLE, this time with ADD FOREIGN KEY.
+![](downloads_schema.png)
 
-#### 6. Create ER Diagram:
-Once your tables are built, populated, and linked, down and use [DBeaver](https://dbeaver.io/) to create an ER diagram to visualize the relationships between your tables.
+```
+--Set a primary key:
+ALTER TABLE table_name ADD PRIMARY KEY (column_name);
 
-Deliverable:
+--Set a foreign key:
+ALTER TABLE table_name ADD FOREIGN KEY (column_name) REFERENCES another_table(another_tables_primary_key_column);
+```
+
+#### 5. Create ER Diagram:
+Once your tables are built, populated, and linked, download and use [DBeaver](https://dbeaver.io/) to create an ER diagram to visualize the relationships between your tables.
+
+**Key Steps**
+- Download [DBeaver](https://dbeaver.io/)
+- Create connection > SQL > Snowflake
+- Host, the first part of your snowflake login url, ending ".snowflakecomputing.com" without "https://"
+- Database: TIL_PORTFOLIO_PROJECTS
+- Warehouse: DATASCHOOL_WH or CORE_WH
+- Schema: the schema you created earlier
+- Authentication: SSO (Browser)
+- Username: your TIL email
+- Role: DATASCHOOL or CORE 
+
+You may be prompted multiple times in the browser.
+
+Navigate to your schema:  right click > View Schema
+
+### Deliverable
 At the end of this challenge, you should have a schema in the TIL_PORTFOLIO_PROJECTS database filled with tables populated with LEGO data. You should also have a DBeaver ER diagram showing the relationships between your tables.
+
+
+
 
 ## Part 2: Analysis of Lego Sets
 
