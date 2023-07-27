@@ -9,7 +9,7 @@ A SQL Portfolio challenge, create a schema, build tables, create an ER (Entity-R
 
 We're going to use the Snowflake database to build and populate a series of tables that make up a LEGO database. You will need to create tables, insert data, set primary and foreign keys, and then create an ER (Entity-Relationship) diagram using DBeaver.
 
-### Key Steps:
+### Key Steps
 
 #### 1. Create Your Schema:
 We'll be working in a database called TIL_PORTFOLIO_PROJECTS and a schema called STAGING contains all our initial data. You should create your own schema within TIL_PORTFOLIO_PROJECTS. This will be the container for all your tables.
@@ -57,7 +57,7 @@ At the end of this challenge, you should have a schema in the TIL_PORTFOLIO_PROJ
 
 Now that you have a fully populated and linked database, the next step is to produce some analysis. LEGO production involves creating many different parts, and as you can imagine, producing new, unique parts can be costly versus reusing existing parts. In this challenge, we want to investigate which LEGO sets include the most unique parts, and how this trend is changing over time.
 
-Key Steps:
+### Key Steps
 
 #### 1. Unique Parts Identification: 
 Identify parts that appear in only one LEGO set. Create a list of these unique parts along with the sets they appear in.
