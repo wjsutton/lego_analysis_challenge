@@ -4,10 +4,10 @@ A SQL Portfolio challenge, create a schema, analyse data, create a visualisation
 <img src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' width="70%">
 
 ## Task Overview
-- [Part 1: Schema Setup :inbox_tray:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-1-schema-setup-inbox_tray)
-- [Part 2: Analysis of Lego Sets :crystal_ball:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-2-analysis-of-lego-sets-crystal_ball)
-- [Part 3: Visualise the data :chart_with_upwards_trend:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-3-visualise-the-data-chart_with_upwards_trend)
-- [Part 4: Record the project on GitHub :white_check_mark:](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-4-record-the-project-on-github-white_check_mark)
+- [Part 1: Schema Setup :inbox_tray:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-1-schema-setup-inbox_tray)
+- [Part 2: Analysis of Lego Sets :crystal_ball:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-2-analysis-of-lego-sets-crystal_ball)
+- [Part 3: Visualise the data :chart_with_upwards_trend:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-3-visualise-the-data-chart_with_upwards_trend)
+- [Part 4: Record the project on GitHub :white_check_mark:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-4-record-the-project-on-github-white_check_mark)
 
 
 ## Part 1: Schema Setup :inbox_tray:
