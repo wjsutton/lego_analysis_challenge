@@ -4,24 +4,26 @@ A SQL Portfolio challenge, create a schema, analyse data, create a visualisation
 <img src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' width="70%">
 
 ## Task Overview
+- [Part 0: Setup a PostgreSQL Database 💾](https://github.com/wjsutton/lego_analysis_challenge/edit/main/README.md#part-0-setup-a-postgresql-database-)
 - [Part 1: Schema Setup :inbox_tray:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-1-schema-setup-inbox_tray)
 - [Part 2: Analysis of Lego Sets :crystal_ball:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-2-analysis-of-lego-sets-crystal_ball)
 - [Part 3: Visualise the data :chart_with_upwards_trend:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-3-visualise-the-data-chart_with_upwards_trend)
 - [Part 4: Record the project on GitHub :white_check_mark:](https://github.com/wjsutton/lego_analysis_challenge/tree/main#part-4-record-the-project-on-github-white_check_mark)
 
+## Part 0: Setup a PostgreSQL Database 💾
 
 ## Part 1: Schema Setup :inbox_tray:
 
-We're going to use the Snowflake database to build and populate a series of tables that make up a LEGO database. You will need to create tables, insert data, set primary and foreign keys, and then create an ER (Entity-Relationship) diagram using DBeaver.
+We're going to use the local PostgreSQL database to build and populate a series of tables that make up a LEGO database. You will need to create tables, insert data, set primary and foreign keys, and then create an ER (Entity-Relationship) diagram.
 
 ### Key Steps
 
 #### 1. Create Your Schema:
-We'll be working in a database called TIL_PORTFOLIO_PROJECTS and a schema called STAGING contains all our initial data. You should create your own schema within TIL_PORTFOLIO_PROJECTS. This will be the container for all your tables.
+We'll be working in a database called `lego` and a schema called `staging` contains all our initial data. You should create a new schema within the `lego` database. This will be the container for all your tables.
 
-Hint: Use the CREATE SCHEMA command to create a schema.
+Hint: Use the `CREATE SCHEMA` command to create a schema.
 ```
-CREATE SCHEMA database.schema_name;
+CREATE SCHEMA schema_name;
 ```
 
 
@@ -39,16 +41,16 @@ Based on the existing data, create the following tables in your schema:
 
 Ensure you define the correct data types for each column in these tables.
 
-Hint: Use the CREATE TABLE command. Look at the data in the STAGING schema for guidance on the data types and column names you'll need.
+Hint: Use the CREATE TABLE command. Look at the data in the `staging` schema for guidance on the data types and column names you'll need.
 ```
-CREATE TABLE database.schema.table (
+CREATE TABLE schema.table (
 	column_1 integer,
 	column_2 VARCHAR(44)
 );
 
 -- Check column character length, for varchar() length
 SELECT MAX(LENGTH(part_num))
-FROM TIL_PORTFOLIO_PROJECTS.STAGING.LEGO_PARTS;
+FROM staging.lego_parts;
 ```
 
 
@@ -59,9 +61,9 @@ Once the tables have been created, you'll need to populate them with data from t
 Hint: Use the INSERT INTO command combined with a SELECT * FROM query to pull in the data from the STAGING tables.
 
 ```
-INSERT INTO database.schema.destination_table (
+INSERT INTO schema.destination_table (
 SELECT *
-FROM  database.schema.source_table
+FROM  schema.source_table
 );
 ```
 
@@ -81,40 +83,46 @@ ALTER TABLE table_name ADD FOREIGN KEY (column_name) REFERENCES another_table(an
 ```
 
 #### 5. Create ER Diagram:
-Once your tables are built, populated, and linked, download and use [DBeaver](https://dbeaver.io/) to create an ER diagram to visualize the relationships between your tables.
+Once your tables are built, populated, and linked right click on your schema to create an ER diagram to visualize the relationships between your tables.
 
-**Key Steps**
+Alternatively you can create a ER diagram using DBeaver and the following steps
 - Download [DBeaver](https://dbeaver.io/)
-- Create connection > SQL > Snowflake
-- Host, the first part of your snowflake login url, ending ".snowflakecomputing.com" without "https://"
-- Database: TIL_PORTFOLIO_PROJECTS
-- Warehouse: DATASCHOOL_WH or CORE_WH
+- Create connection > SQL > PostgresSQL
+- Host: localhost
+- Database: lego
 - Schema: the schema you created earlier
-- Authentication: SSO (Browser)
-- Username: your TIL email
-- Role: DATASCHOOL or CORE 
-
-You may be prompted to login multiple times in the browser.
+- Enter username and password
 
 Navigate to your schema:  right click > View Schema
 
 ### Deliverable
 
 At the end of this section, you should have:
-- a schema in the TIL_PORTFOLIO_PROJECTS database filled with tables populated with LEGO data.
+- a schema in the LEGO database filled with tables populated with LEGO data.
 - a SQL script creating your schema, tables, inserting data and creating primary and foreign keys
-- a DBeaver ER diagram showing the relationships between your tables
+- an ER diagram showing the relationships between your tables
 
 ### My Solution
 
 Here is my solution if you get stuck
-- [SQL Script](solutions/create_lego_schema.sql)
-- ER Diagram](solutions/lego_er_diagram.png)
+- [SQL Script](solutions/1_create_analysis_schema.sql)
+- [ER Diagram](solutions/lego_er_diagram.png)
 
 
 ## Part 2: Analysis of Lego Sets :crystal_ball:
 
-Now that you have a fully populated and linked database, the next step is to produce some analysis. LEGO production involves creating many different parts, and as you can imagine, producing new, unique parts can be costly versus reusing existing parts. In this challenge, we want to investigate which LEGO sets include the most unique parts, and how this trend is changing over time.
+Now that you have a fully populated and linked database, the next step is to produce some analysis.
+
+At this point you are free to analyse the data as you wish. I reccomend taking a perspective on the data, this maybe:
+
+- A group of sets you are interested in, e.g. How do sets like The Lord of the Rings or Star Wars compare to other brands?
+- How the sets have changed over time, e.g. How has the color range changed?
+- An area that will impact the business, e.g. How often are parts reused (or not reused) across different sets?
+
+For this section I will explore "unique parts" i.e. parts that don't appear in other sets.
+
+**Outline:** 
+LEGO production involves creating many different parts, and as you can imagine, producing new, unique parts can be costly versus reusing existing parts. In this challenge, we want to investigate which LEGO sets include the most unique parts, and how this trend is changing over time.
 
 ### Key Steps
 
@@ -149,14 +157,16 @@ FROM my_well_named_view;
 ### My Solution
 
 Here is my solution if you get stuck
-- [SQL Script](solutions/unique_lego_sets.sql)
+- [SQL Script](solutions/2_analysis_unique_parts.sql)
 
 
 ## Part 3: Visualise the data :chart_with_upwards_trend:
 
 Now that you have a View created, your next task is to build a Tableau dashboard to explore the unique parts in various LEGO sets.
 
-Go to the TIL Tableau Server, connect to Snowflake and the view you've created. The connection details will be the same as in part 1 when connecting to DBeaver.
+Options:
+- Go to Tableau Desktop (paid), connect to PostgreSQL and the view you've created. The connection details will be the same as in part 1 when connecting to DBeaver.
+- Or in pgAdmin4 download a csv of your view results, go to Tableau Public (free) and connect to the csv file. 
 
 Product three charts exploring unique Lego parts:
 - change over time
