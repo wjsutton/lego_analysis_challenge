@@ -16,7 +16,13 @@ A SQL Portfolio challenge, create a schema, analyse data, create a visualisation
 - Create a new database (lego), staging schema and import the tables stored here: https://github.com/wjsutton/lego_analysis_challenge/tree/main/data
 	- Note: you can either use the manual csv upload for each file or the SQL script that will build the tables and insert all the data
 - Create a user/role to have select access to the contents of the lego database, not the postgres database or any others
-- Connect the PostgreSQL database to another service, like DBeaver, Tableau or Python 
+- Connect the PostgreSQL database to another service, like DBeaver, Tableau or Python
+
+### Walkthrough 
+
+For more details and guidance please check the walkthrough video here:
+<a href="https://www.youtube.com/watch?v=QPE5_p9PRsc">
+<img src='https://github.com/wjsutton/lego_analysis_challenge/blob/main/solutions/Install%20Guide.png?raw=true' width="50%"></a>
 
 ## Part 1: Schema Setup :inbox_tray:
 
@@ -114,6 +120,12 @@ Here is my solution if you get stuck
 - [SQL Script](solutions/1_create_analysis_schema.sql)
 - [ER Diagram](solutions/lego_er_diagram.png)
 
+### Walkthrough 
+
+For more details and guidance please check the walkthrough video here:
+<a href="https://www.youtube.com/watch?v=9brLkWC9BdU">
+<img src='https://github.com/wjsutton/lego_analysis_challenge/blob/main/solutions/Lego%20Project.png?raw=true' width="50%"></a>
+
 
 ## Part 2: Analysis of Lego Sets :crystal_ball:
 
@@ -165,6 +177,12 @@ FROM my_well_named_view;
 Here is my solution if you get stuck
 - [SQL Script](solutions/2_analysis_unique_parts.sql)
 
+### Walkthrough 
+
+For more details and guidance please check the walkthrough video here:
+<a href="https://www.youtube.com/watch?v=9brLkWC9BdU">
+<img src='https://github.com/wjsutton/lego_analysis_challenge/blob/main/solutions/Lego%20Project.png?raw=true' width="50%"></a>
+
 
 ## Part 3: Visualise the data :chart_with_upwards_trend:
 
@@ -185,6 +203,13 @@ Save the results as a Tableau dashboard.
 Record a screenshot of the visualisation.
 
 You can add this to your Tableau Public portfolio by replacing the datasource with the csvfrom part 2, opening the .twbx file in Tableau Public and saving the workbook.
+
+### My Solution
+
+Here is my solution downloadable on Tableau Public
+
+<a href="https://public.tableau.com/app/profile/wjsutton/viz/UniqueLegoPartsSummerOfSQL/UniqueLegoParts">
+<img src='https://github.com/wjsutton/lego_analysis_challenge/blob/main/solutions/Unique%20Lego%20Parts.png?raw=true' width="100%"></a>
 
 ## Part 4: Record the project on GitHub :white_check_mark:
 
