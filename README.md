@@ -12,6 +12,12 @@ A SQL Portfolio challenge, create a schema, analyse data, create a visualisation
 
 ## Part 0: Setup a PostgreSQL Database 💾
 
+- Download and install PostgreSQL: https://www.postgresql.org/download/
+- Create a new database (lego), staging schema and import the tables stored here: https://github.com/wjsutton/lego_analysis_challenge/tree/main/data
+	- Note: you can either use the manual csv upload for each file or the SQL script that will build the tables and insert all the data
+- Create a user/role to have select access to the contents of the lego database, not the postgres database or any others
+- Connect the PostgreSQL database to another service, like DBeaver, Tableau or Python 
+
 ## Part 1: Schema Setup :inbox_tray:
 
 We're going to use the local PostgreSQL database to build and populate a series of tables that make up a LEGO database. You will need to create tables, insert data, set primary and foreign keys, and then create an ER (Entity-Relationship) diagram.
